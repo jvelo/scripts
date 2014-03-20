@@ -3,7 +3,7 @@ SERVER=$1
 LOCAL_DB=$2
 
 rsync -chavzP $USER@$SERVER:/usr/local/data/{tenants,themes} .
-ssh $USER@$SERVER 'sudo -u postgres pg_dump shop > update_local.dump.sql'
+ssh $USER@$SERVER 'sudo -u postgres /usr/bin/pg_dump shop > update_local.dump.sql'
 scp $USER@$SERVER:/home/$USER/update_local.dump.sql .
 ssh $USER@$SERVER 'rm update_local.dump.sql'
 psql -U postgres -c "DROP DATABASE $LOCAL_DB";
