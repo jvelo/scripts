@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# You pay a MacBook of 2021 shy of 3K€ and its speakers emits cracking fart noises...
+# This "fixes" it, until maybe it won't
+# https://www.reddit.com/r/macbookpro/comments/qmpg3k/2021_macbook_pro_speakers_crackling_and_popping/hqmbham/
+
+sudo kill -9 `ps ax|grep 'coreaudio[a-z]' | awk '{print $1}'`
