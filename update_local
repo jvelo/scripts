@@ -1,3 +1,9 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
 USER=jerome
 SERVER=$1
 LOCAL_DB=$2

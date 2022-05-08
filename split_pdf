@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# Usage ./split_pdf inputfile.pdf outputfile.pdf pagenumber
+# Example: ./split_pdf myfile.pdf myotherfile.pdf 2
+
+GS=$(which gs)
+
+if [[ $GS = "" ]]
+then
+  echo “Ghostscript is not installed”
+  exit
+fi
+
+$GS -sDEVICE=pdfwrite -q -dNOPAUSE -dBATCH -sOutputFile=$2 -dFirstPage=$3 -dLastPage=$3 $1

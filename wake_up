@@ -1,3 +1,9 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
 # Settings
 MUSIC_DIR="$HOME/Music"
 TEMP_DIR="/tmp/"
